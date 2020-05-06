@@ -13,3 +13,45 @@ This sample is used in the [getting-started series of tutorials for API apps](ht
 To deploy the application to your Azure subscription without following the tutorial, use the **Deploy to Azure** button.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
+
+# Azure Cloud Shell Deployment
+
+In order to deploy this via Cloud Shell, you'll need to set up a couple of variables prior to starting. This can be do in `~/.bashrc`, but remember to source it prior to running the script, with `. ~/.bashrc`. Note that this will happen on your next login, but won;'t take effect if you've just changed it in the current session. 
+
+Variables required prior to starting:
+
+```
+WEBAPP_USER=ryanmaclean #EXAMPLE, DON'T USE!
+WEBAPP_PASS=cr4zyaw3someP4ss? # EXAMPLE, DON'T USE!
+```
+
+These can be added to `~/.bashrc` by using nano or vim (both are installed in Azure Cloud Shell).
+
+Once added, make sure to `source` the file in order to load the variables like so: `source ~/.bashrc`. 
+
+The script is in the repo as `cloud_shell_script.sh`, but the contents are here in case you simply want to copy/paste. Note that you want to edit the location, SKU, etc prior to running it. : 
+
+```
+#SET VARIABLES
+RESOURCE_GROUP=myResourceGroup
+LOCATION="East US2"
+APP_NAME=myAppTest
+APP_PLAN=myAppServicePlan
+SKU=FREE
+
+#CREATE RESOURCES
+az webapp deployment user set --user-name "$WEBAPP_USER" --password "$WEBAPP_PASS"
+az group create --name "$RESOURCE_GROUP" --location "$LOCATION"
+az appservice plan create --name "$APP_PLAN" --resource-group "$RESOURCE_GROUP" --sku "$SKU"
+sleep 30
+az webapp create --resource-group "$RESOURCE_GROUP" --plan "$APP_PLAN" --name "$APP_NAME" --deployment-local-git
+
+#CLONE CODE THEN PUSH TO SITE
+cd ~
+mkdir $APP_NAME
+cd $APP_NAME
+git clone https://github.com/ryanmaclean/dotnet-core-api
+cd dotnet-core-api
+git remote add azure https://"$WEBAPP_USER"@"$APP_NAME".scm.azurewebsites.net/"$APP_NAME".git
+git push azure master
+```
