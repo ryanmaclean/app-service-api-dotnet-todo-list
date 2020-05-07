@@ -29,7 +29,8 @@
         "Central India",
         "South India",
         "West India"
-      ]
+      ],
+      "defaultValue": "East US 2"
     },
     "sku": {
       "type": "string",
@@ -53,7 +54,7 @@
     },
     "repoUrl": {
       "type": "string",
-      "defaultValue": "https://github.com/azure-samples/app-service-api-dotnet-todo-list.git"
+      "defaultValue": "https://github.com/ryanmaclean/app-service-api-dotnet-todo-list.git"
     },
     "branch": {
       "type": "string",
