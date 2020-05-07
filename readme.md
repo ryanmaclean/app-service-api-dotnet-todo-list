@@ -16,16 +16,16 @@ To deploy the application to your Azure subscription without following the tutor
 
 # Azure Cloud Shell Deployment
 
-In order to deploy this via Cloud Shell, you'll need to set up a couple of variables prior to starting. This can be do in `~/.bashrc`, but remember to source it prior to running the script, with `. ~/.bashrc`. Note that this will happen on your next login, but won't take effect if you've just changed it in the current session. 
+In order to deploy this via Cloud Shell, you'll need to set up a couple of variables prior to starting. This can be done in `~/.bashrc`, but remember to source it prior to running the script, with `. ~/.bashrc`. Note that this will happen on your next login, but won't take effect if you've just changed it in the current session. 
 
 Variables required prior to starting:
 
 ```
-WEBAPP_USER=ryanmaclean #EXAMPLE, DON'T USE!
+WEBAPP_USER=ryanmaclean # EXAMPLE, DON'T USE!
 WEBAPP_PASS=cr4zyaw3someP4ss? # EXAMPLE, DON'T USE!
 ```
 
-These can be added to `~/.bashrc` by using nano or vim (both are installed in Azure Cloud Shell).
+These can be added to `~/.bashrc` (or `~/.zshrc` for zsh!) by using nano or vim (both are installed by default in Azure Cloud Shell).
 
 Once added, make sure to `source` the file in order to load the variables like so: `source ~/.bashrc`. 
 
