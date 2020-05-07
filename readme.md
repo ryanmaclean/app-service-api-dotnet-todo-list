@@ -1,10 +1,10 @@
-# NOTE - OLD REPO IS NOW ARCHIVED, HENCE THIS FORK!
-
 ---
 services: app-service\api
 platforms: dotnet
 author: bradygaster
 ---
+
+# NOTE - OLD REPO IS NOW ARCHIVED, HENCE THIS FORK!
 
 # To Do List Azure API App Sample #
 
