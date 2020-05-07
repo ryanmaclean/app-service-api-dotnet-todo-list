@@ -1,3 +1,5 @@
+# NOTE - OLD REPO IS NOW ARCHIVED, HENCE THIS FORK!
+
 ---
 services: app-service\api
 platforms: dotnet
