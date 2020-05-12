@@ -52,8 +52,8 @@ az webapp create --resource-group "$RESOURCE_GROUP" --plan "$APP_PLAN" --name "$
 cd ~
 mkdir $APP_NAME
 cd $APP_NAME
-git clone https://github.com/ryanmaclean/dotnet-core-api
-cd dotnet-core-api
+git clone https://github.com/ryanmaclean/app-service-api-dotnet-todo-list.git
+cd app-service-api-dotnet-todo-list
 git remote add azure https://"$WEBAPP_USER"@"$APP_NAME".scm.azurewebsites.net/"$APP_NAME".git
 git push azure master
 ```
